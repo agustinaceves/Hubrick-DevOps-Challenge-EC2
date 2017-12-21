@@ -1,0 +1,31 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: joseaceves
+  region: us-west-2
+  availability_zone: b
+  instance_type: t2.micro
+  image_id: ami-0def3275
+  security_group_ids: ["sg-20c2a35c"]
+  retryable_tries: 120
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+transport:
+  ssh_key: /Users/jose.aceves/Downloads/joseaceves.pem
+
+platforms:
+  - name: ubuntu-16.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[Hubrick-DevOps-Challenge-EC2::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:

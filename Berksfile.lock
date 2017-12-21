@@ -1,0 +1,7 @@
+DEPENDENCIES
+  Hubrick-DevOps-Challenge-EC2
+    path: .
+    metadata: true
+
+GRAPH
+  Hubrick-DevOps-Challenge-EC2 (0.1.0)
